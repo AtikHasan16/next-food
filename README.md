@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next-Food
+
+A modern food review and listing web app built with Next.js 16, React 19, Tailwind CSS 4, and HeroUI components.
+
+## Features
+
+- Next.js 16 App Router
+- TypeScript & React 19
+- Tailwind CSS 4 for styling
+- HeroUI for beautiful, accessible UI components
+- Dark mode support
+- Modular folder structure
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install Dependencies
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Run the Development Server
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-## Learn More
+## HeroUI & Tailwind Setup
 
-To learn more about Next.js, take a look at the following resources:
+- **HeroUI packages:**
+  - `@heroui/button`, `@heroui/system`, `@heroui/theme`, `@heroui/react`
+- **Tailwind config:**
+  - `tailwind.config.js` includes both `src` and HeroUI theme paths in `content`.
+  - HeroUI plugin is added to `plugins`.
+- **PostCSS config:**
+  - Uses `tailwindcss` and `autoprefixer` plugins.
+- **globals.css:**
+  - Uses `@tailwind base;`, `@tailwind components;`, `@tailwind utilities;`.
+- **Providers:**
+  - App is wrapped with `HeroUIProvider` in `src/app/providers.tsx`.
+- **Dark mode:**
+  - Enabled via `darkMode: "class"` in Tailwind config and a script in `layout.tsx`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+next-food/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx
+│   │   ├── providers.tsx
+│   │   ├── globals.css
+│   │   ├── foods/
+│   │   │   └── page.tsx
+│   │   └── reviews/
+│   │       └── page.tsx
+│   └── components/
+│       └── Navbar.tsx
+├── tailwind.config.js
+├── postcss.config.mjs
+├── next.config.ts
+├── package.json
+└── README.md
+```
 
-## Deploy on Vercel
+## Available Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `npm run dev` — Start development server
+- `npm run build` — Build for production
+- `npm run start` — Start production server
+- `npm run lint` — Lint code
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Troubleshooting HeroUI Button Issues
+
+- Ensure `@heroui/*` packages are installed
+- Confirm `tailwind.config.js` includes both `src` and HeroUI theme paths in `content`
+- Use `@tailwind` directives in `globals.css`
+- Make sure `HeroUIProvider` wraps your app in `providers.tsx`
+- Restart the dev server after config changes
+
+## License
+
+MIT

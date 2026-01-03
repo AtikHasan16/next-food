@@ -16,6 +16,7 @@ const Foods = async () => {
 
   return (
     <div>
+      
       <h1 className="text-4xl font-bold">
         Total <span className="text-amber-500">{foodsData.foods.length}</span>{" "}
         Foods

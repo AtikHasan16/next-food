@@ -7,7 +7,8 @@ const getFoods = async () => {
     "https://taxi-kitchen-api.vercel.app/api/v1/foods/random"
   );
   const data = await res.json();
-  return data;
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
+  return data || [];
 };
 const Foods = async () => {
   const foodsData = await getFoods();
@@ -20,8 +21,8 @@ const Foods = async () => {
         Foods
       </h1>
       <div className="grid grid-cols-3 gap-10 mt-6 px-6">
-        {foodsData.foods.map((item: FoodItem) => (
-          <FoodCard key={item.id} item={item}></FoodCard>
+        {foodsData.foods.map((item: FoodItem, index: number) => (
+          <FoodCard key={item.id} item={item} priority={index < 2}></FoodCard>
         ))}
       </div>
     </div>

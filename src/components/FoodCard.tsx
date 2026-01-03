@@ -9,11 +9,12 @@ import { FoodItem } from "@/types";
 
 interface FoodCardProps {
   item: FoodItem;
+  priority?: boolean;
 }
 
-export default function FoodCard({ item }: FoodCardProps) {
+export default function FoodCard({ item, priority = false }: FoodCardProps) {
   return (
-    <Card shadow="sm" className="w-full border-2 border-warning " isPressable>
+    <Card shadow="sm" className="w-full border-2 border-warning ">
       {/* Card Body - Image Area */}
       <CardBody className="overflow-visible p-0">
         <div className="relative w-full h-50">
@@ -23,7 +24,7 @@ export default function FoodCard({ item }: FoodCardProps) {
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover rounded-t-lg"
-            priority={false} // Lazy load by default
+            priority={priority} // Lazy load by default
           />
         </div>
       </CardBody>
@@ -54,7 +55,7 @@ export default function FoodCard({ item }: FoodCardProps) {
 
           <Button
             as={Link}
-            href={`/food/${item.id}`} // Adjust route to match your structure
+            href={`/foods/${item.id}`} // Adjust route to match your structure
             className="flex-1"
             color="warning"
             variant="bordered"

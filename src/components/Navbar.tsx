@@ -1,9 +1,30 @@
-import React from 'react'
+"use client";
+import Image from "next/image";
+import logo from "../../public/image.png";
+import Link from "next/link";
+import { Button } from "@heroui/react";
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
-  )
-}
+    <div>
+      {" "}
+      <header className="bg-stone-900 flex justify-between items-center py-4 px-6 fixed w-full top-0 z-50">
+        <figure className="border">
+          <Link href={"/"}>
+            <Image height={60} width={60} src={logo} alt="logo"></Image>
+          </Link>
+        </figure>
+        <div className="flex gap-3">
+          <Link href={"/foods"}>
+            <Button color="primary">Foods</Button>
+          </Link>
+          <Link href={"/reviews"}>
+            <Button color="primary">Reviews</Button>
+          </Link>
+        </div>
+      </header>
+    </div>
+  );
+};
 
-export default Navbar
+export default Navbar;

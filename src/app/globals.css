@@ -1,8 +1,14 @@
 @import "tailwindcss";
+/* 1. Register the HeroUI plugin */
+@plugin "../hero.config.ts"; /* Adjust path to where you created hero.ts */
+/* 2. Tell Tailwind to scan HeroUI components for utility classes */
+/* Adjust the path traversal (../) based on where this CSS file is located relative to node_modules */
+@source "../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
+
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
 }
 
 @theme inline {
@@ -14,7 +20,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #000000;
     --foreground: #ededed;
   }
 }

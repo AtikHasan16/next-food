@@ -5,7 +5,6 @@
 /* Adjust the path traversal (../) based on where this CSS file is located relative to node_modules */
 @source "../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
 
-
 :root {
   --background: #ffffff;
   --foreground: #000000;
@@ -29,4 +28,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+html {
+  scroll-behavior: smooth;
 }

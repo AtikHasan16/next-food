@@ -18,7 +18,7 @@ interface ReviewItem {
 export default function ReviewCard({ item }: { item: ReviewItem }) {
   return (
     <Card shadow="sm" className="w-full border-2 border-warning bg-transparent">
-      <CardBody className="p-4 flex flex-col gap-3">
+      <CardBody className="p-4 flex flex-col gap-3 bg-black/50">
         {/* User Info Header */}
         <div className="flex justify-between items-start">
           <User

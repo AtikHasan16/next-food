@@ -5,6 +5,7 @@ import { Card, CardBody, CardFooter, Button, Chip } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { FoodItem } from "@/types";
+import AddToCartButton from "./AddToCartButton";
 // Adjust path as needed
 
 interface FoodCardProps {
@@ -44,15 +45,9 @@ export default function FoodCard({ item, priority = false }: FoodCardProps) {
 
         {/* Buttons */}
         <div className="w-full flex gap-2 mt-2">
-          <Button
-            className="flex-1"
-            color="primary"
-            variant="solid"
-            onPress={() => console.log("Added to cart:", item.id)}
-          >
-            Add to Cart
-          </Button>
-
+          <div className="flex-1">
+            <AddToCartButton></AddToCartButton>
+          </div>
           <Button
             as={Link}
             href={`/foods/${item.id}`} // Adjust route to match your structure

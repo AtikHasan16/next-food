@@ -1,5 +1,6 @@
 "use client";
 
+import ReviewCard from "@/components/ReviewCard";
 import { Review } from "@/types";
 import React, { useEffect, useState } from "react";
 
@@ -11,7 +12,13 @@ const Reviews = () => {
       .then((res) => res.json())
       .then((data) => setReviews(data.reviews));
   }, []);
-  return <div className="">Reviews {reviews.length}</div>;
+  return (
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-6 px-6">
+      {reviews.map((item) => (
+        <ReviewCard item={item} key={item.id}></ReviewCard>
+      ))}
+    </div>
+  );
 };
 
 export default Reviews;

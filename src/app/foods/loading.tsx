@@ -8,7 +8,7 @@ const loading = () => {
       <h1 className="text-4xl font-bold">
         Total <span className="text-amber-500">...</span> Foods
       </h1>
-      <div className="grid grid-cols-3 gap-10 mt-6 px-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-6 px-6">
         {[...Array(12)].map((_, i: number) => (
           <SkeletonCard key={i}></SkeletonCard>
         ))}

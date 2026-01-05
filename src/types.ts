@@ -7,7 +7,7 @@ export interface FoodItem {
   price: number;
   category: string;
 }
-
+// Detailed type for food items
 export interface FoodDetailsType {
   id: number;
   title: string;
@@ -17,4 +17,17 @@ export interface FoodDetailsType {
   foodImg: string;
   price: number;
   video: string;
+}
+
+// Type for review items
+export interface Review {
+  id: number;
+  user: string;
+  email: string;
+  photo: string;
+  rating: number;
+  review: string;
+  // array of emails
+  likes: string[];
+  date: string;
 }

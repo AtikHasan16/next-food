@@ -8,12 +8,13 @@ const Navbar = () => {
   return (
     <div>
       {" "}
-      <header className=" flex justify-between items-center py-4 px-6 fixed w-full top-0 z-50">
-        <figure className="border">
-          <Link href={"/"}>
+      <header className=" flex justify-between items-center py-4 px-6 fixed w-full top-0 z-50 backdrop-blur-2xl">
+        <div className="">
+          <Link href={"/"} className="flex justify-center items-center gap-4 ">
             <Image height={60} width={60} src={logo} alt="logo"></Image>
+            <h1 className="text-2xl text-white font-bold">NexT FooD</h1>
           </Link>
-        </figure>
+        </div>
         <div className="flex gap-3">
           <Link href={"/foods"}>
             <Button color="primary">Foods</Button>

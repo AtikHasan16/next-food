@@ -15,18 +15,26 @@ const Navbar = () => {
             <h1 className="text-2xl text-white font-bold">NexT FooD</h1>
           </Link>
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-3 text-xl">
           <Link href={"/foods"}>
-            <Button color="primary">Foods</Button>
+            <Button color="warning" size="lg" className="font-bold">
+              Foods
+            </Button>
           </Link>
           <Link href={"/reviews"}>
-            <Button color="primary">Reviews</Button>
+            <Button color="warning" size="lg" className="font-bold">
+              Reviews
+            </Button>
           </Link>
           <Link href={"/about"}>
-            <Button color="secondary">About</Button>
+            <Button color="primary" size="lg" className="font-bold">
+              About
+            </Button>
           </Link>
           <Link href={"/locations"}>
-            <Button color="secondary">Locations</Button>
+            <Button color="primary" size="lg" className="font-bold">
+              Locations
+            </Button>
           </Link>
         </div>
       </header>

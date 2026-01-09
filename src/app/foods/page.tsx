@@ -2,13 +2,26 @@ import FoodCard from "@/components/FoodCard";
 import { FoodItem } from "@/types";
 import React from "react";
 
-const getFoods = async () => {
-  const res = await fetch(
-    "https://taxi-kitchen-api.vercel.app/api/v1/foods/random"
-  );
-  const data = await res.json();
-  // await new Promise((resolve) => setTimeout(resolve, 3000));
-  return data || [];
+interface FoodsResponse {
+  foods: FoodItem[];
+}
+
+const getFoods = async (): Promise<FoodsResponse> => {
+  try {
+    const res = await fetch(
+      "https://taxi-kitchen-api.vercel.app/api/v1/foods/random",
+      { next: { revalidate: 3600 } } // Cache data for 1 hour
+    );
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch foods: ${res.status}`);
+    }
+
+    return await res.json();
+  } catch (error) {
+    console.error("Error fetching foods:", error);
+    return { foods: [] }; // Return empty array to prevent runtime crashes
+  }
 };
 const Foods = async () => {
   const foodsData = await getFoods();
